@@ -1,0 +1,10 @@
+{
+  "entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
+    "ohos.hilog",
+    "ohos.app.ability.UIAbility"
+  ],
+  "entry\\src\\main\\ets\\entrybackupability\\EntryBackupAbility.ets": [
+    "ohos.hilog",
+    "ohos.application.BackupExtensionAbility"
+  ]
+}

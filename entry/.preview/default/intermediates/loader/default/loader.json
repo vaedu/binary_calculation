@@ -1,0 +1,22 @@
+{
+  "modulePathMap": {
+    "entry": "D:\\binary_calculation\\entry"
+  },
+  "compileMode": "esmodule",
+  "projectRootPath": "D:\\binary_calculation",
+  "nodeModulesPath": "D:\\binary_calculation\\entry\\.preview\\default\\intermediates\\loader_out\\default\\node_modules",
+  "byteCodeHarInfo": {},
+  "declarationEntry": [],
+  "moduleName": "entry",
+  "hspNameOhmMap": {},
+  "harNameOhmMap": {},
+  "packageManagerType": "ohpm",
+  "compileEntry": [],
+  "otherCompileFiles": [],
+  "dynamicImportLibInfo": {},
+  "routerMap": [],
+  "hspResourcesMap": {},
+  "anBuildOutPut": "D:\\binary_calculation\\entry\\.preview\\default\\intermediates\\loader_out\\default\\an\\arm64-v8a",
+  "anBuildMode": "type",
+  "buildConfigPath": ".preview\\config\\buildConfig.json"
+}
