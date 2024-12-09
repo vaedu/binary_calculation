@@ -1,319 +1,0 @@
-Ôr@Ÿªassertions¤code´customTransformCache¬dependencies¢id¤meta±moduleSideEffects¬originalCode±originalSourcemap«resolvedIds®sourcemapChainµsyntheticNamedExportsµtransformDependencies®transformFiles¨cacheAstÔrAÚ!ó"use strict";
-if (!("finalizeConstruction" in ViewPU.prototype)) {
-    Reflect.set(ViewPU.prototype, "finalizeConstruction", () => { });
-}
-function __Button__ButtonStyles() {
-    Button.width('22%');
-    Button.height(120);
-    Button.type(ButtonType.Normal);
-    Button.fontColor('#fff');
-}
-class Index extends ViewPU {
-    constructor(parent, params, __localStorage, elmtId = -1, paramsLambda = undefined, extraInfo) {
-        super(parent, __localStorage, elmtId, extraInfo);
-        if (typeof paramsLambda === "function") {
-            this.paramsGenerator_ = paramsLambda;
-        }
-        this.__num1 = new ObservedPropertySimplePU('' // ç”¨æˆ·è¾“å…¥çš„åè¿›åˆ¶æ•°å­—
-        , this, "num1");
-        this.__numberArr = new ObservedPropertyObjectPU([
-            'C', '2è¿›åˆ¶', '4è¿›åˆ¶', 'âŒ«',
-            '7', '8', '9', '8è¿›åˆ¶',
-            '4', '5', '6', '16è¿›åˆ¶',
-            '1', '2', '3', '32è¿›åˆ¶',
-            '0'
-        ]
-        // è¿›åˆ¶è½¬æ¢å‡½æ•°
-        , this, "numberArr");
-        this.setInitiallyProvidedValue(params);
-        this.finalizeConstruction();
-    }
-    setInitiallyProvidedValue(params) {
-        if (params.num1 !== undefined) {
-            this.num1 = params.num1;
-        }
-        if (params.numberArr !== undefined) {
-            this.numberArr = params.numberArr;
-        }
-    }
-    updateStateVars(params) {
-    }
-    purgeVariableDependenciesOnElmtId(rmElmtId) {
-        this.__num1.purgeDependencyOnElmtId(rmElmtId);
-        this.__numberArr.purgeDependencyOnElmtId(rmElmtId);
-    }
-    aboutToBeDeleted() {
-        this.__num1.aboutToBeDeleted();
-        this.__numberArr.aboutToBeDeleted();
-        SubscriberManager.Get().delete(this.id__());
-        this.aboutToBeDeletedInternal();
-    }
-    get num1() {
-        return this.__num1.get();
-    }
-    set num1(newValue) {
-        this.__num1.set(newValue);
-    }
-    get numberArr() {
-        return this.__numberArr.get();
-    }
-    set numberArr(newValue) {
-        this.__numberArr.set(newValue);
-    }
-    // è¿›åˆ¶è½¬æ¢å‡½æ•°
-    convertToBase(number, base) {
-        try {
-            const decimalValue = parseInt(number, 10); // å°†å­—ç¬¦ä¸²è§£æžä¸ºåè¿›åˆ¶æ•´æ•°
-            if (isNaN(decimalValue))
-                return "é”™è¯¯";
-            return decimalValue.toString(base); // è½¬æ¢ä¸ºæŒ‡å®šçš„è¿›åˆ¶
-        }
-        catch {
-            return "é”™è¯¯";
-        }
-    }
-    initialRender() {
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Column.create();
-            Column.width('100%');
-            Column.height(1000);
-            Column.backgroundColor('#000');
-            Column.justifyContent(FlexAlign.SpaceBetween);
-        }, Column);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Column.create();
-            Column.width('100%');
-            Column.height(120);
-        }, Column);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Row.create();
-            Row.width('100%');
-            Row.height('100%');
-        }, Row);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Text.create(this.num1);
-            Text.width('100%');
-            Text.height(200);
-            Text.backgroundColor("#010101");
-            Text.fontColor('#fff');
-            Text.fontSize(30);
-            Text.textAlign(TextAlign.End);
-            Text.padding(10);
-        }, Text);
-        Text.pop();
-        Row.pop();
-        Column.pop();
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Column.create();
-            Column.width('100%');
-            Column.height(880);
-        }, Column);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            ForEach.create();
-            const forEachItemGenFunction = (_item, index) => {
-                const item = _item;
-                this.observeComponentCreation2((elmtId, isInitialRender) => {
-                    If.create();
-                    if (index % 4 === 0) {
-                        this.ifElseBranchUpdateFunction(0, () => {
-                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                Row.create();
-                                Row.width('100%');
-                                Row.height(120);
-                                Row.justifyContent(FlexAlign.SpaceEvenly);
-                                Row.margin({
-                                    bottom: 10
-                                });
-                            }, Row);
-                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                ForEach.create();
-                                const forEachItemGenFunction = _item => {
-                                    const buttonItem = _item;
-                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                        Button.createWithLabel(buttonItem);
-                                        __Button__ButtonStyles();
-                                        ViewStackProcessor.visualState("normal");
-                                        Button.backgroundColor('#000');
-                                        ViewStackProcessor.visualState("pressed");
-                                        Button.backgroundColor('#70eeeeee');
-                                        ViewStackProcessor.visualState();
-                                        Button.onClick(() => {
-                                            if (buttonItem === 'C') {
-                                                this.num1 = '';
-                                            }
-                                            else if (buttonItem === 'âŒ«') {
-                                                this.num1 = this.num1.slice(0, -1);
-                                            }
-                                            else if (buttonItem === '2è¿›åˆ¶') {
-                                                this.num1 = this.convertToBase(this.num1, 2);
-                                            }
-                                            else if (buttonItem === '4è¿›åˆ¶') {
-                                                this.num1 = this.convertToBase(this.num1, 4);
-                                            }
-                                            else if (buttonItem === '8è¿›åˆ¶') {
-                                                this.num1 = this.convertToBase(this.num1, 8);
-                                            }
-                                            else if (buttonItem === '16è¿›åˆ¶') {
-                                                this.num1 = this.convertToBase(this.num1, 16);
-                                            }
-                                            else if (buttonItem === '32è¿›åˆ¶') {
-                                                this.num1 = this.convertToBase(this.num1, 32);
-                                            }
-                                            else {
-                                                this.num1 += buttonItem;
-                                            }
-                                        });
-                                    }, Button);
-                                    Button.pop();
-                                };
-                                this.forEachUpdateFunction(elmtId, this.numberArr.slice(index, index + 4), forEachItemGenFunction);
-                            }, ForEach);
-                            ForEach.pop();
-                            Row.pop();
-                        });
-                    }
-                    else {
-                        this.ifElseBranchUpdateFunction(1, () => {
-                        });
-                    }
-                }, If);
-                If.pop();
-            };
-            this.forEachUpdateFunction(elmtId, this.numberArr, forEachItemGenFunction, undefined, true, false);
-        }, ForEach);
-        ForEach.pop();
-        Column.pop();
-        Column.pop();
-    }
-    rerender() {
-        this.updateDirtyElements();
-    }
-    static getEntryName() {
-        return "Index";
-    }
-}
-registerNamedRoute(() => new Index(undefined, {}), "", { bundleName: "com.example.binary_calculation", moduleName: "entry", pagePath: "pages/Index", pageFullPath: "entry/src/main/ets/pages/Index", integratedHsp: "false" });
-//# sourceMappingURL=Index.js.mapÂÙ8E:\binary_calculation\entry\src\main\ets\pages\Index.etsÔrBš°belongModulePathªmoduleName±isLocalDependency¯isNodeEntryFile§pkgPath±belongProjectPath§pkgNameªpkgVersion±dependencyPkgInfo¯hostModulesInfo»E:\binary_calculation\entry¥entryÃÂ»E:\binary_calculation\entryµE:\binary_calculation¥entry¥1.0.0Ô  ÃÚƒ@Extend(Button) function ButtonStyles() {
-  .width('22%')
-  .height(120)
-  .type(ButtonType.Normal)
-  .fontColor('#fff')
-}
-
-@Entry
-@Component
-struct Index {
-  @State num1: string = '' // ç”¨æˆ·è¾“å…¥çš„åè¿›åˆ¶æ•°å­—
-  @State numberArr: string[] = [
-    'C', '2è¿›åˆ¶', '4è¿›åˆ¶', 'âŒ«',
-    '7', '8', '9', '8è¿›åˆ¶',
-    '4', '5', '6', '16è¿›åˆ¶',
-    '1', '2', '3', '32è¿›åˆ¶',
-    '0'
-  ]
-
-  // è¿›åˆ¶è½¬æ¢å‡½æ•°
-  convertToBase(number: string, base: number): string {
-    try {
-      const decimalValue = parseInt(number, 10) // å°†å­—ç¬¦ä¸²è§£æžä¸ºåè¿›åˆ¶æ•´æ•°
-      if (isNaN(decimalValue)) return "é”™è¯¯"
-      return decimalValue.toString(base) // è½¬æ¢ä¸ºæŒ‡å®šçš„è¿›åˆ¶
-    } catch {
-      return "é”™è¯¯"
-    }
-  }
-
-  build() {
-
-      Column() {
-
-        Column(){
-          Row() {
-            Text(this.num1)
-              .width('100%')
-              .height(200)
-              .backgroundColor("#010101")
-              .fontColor('#fff')
-              .fontSize(30)
-              .textAlign(TextAlign.End)
-              .padding(10)
-          }
-          .width('100%')
-          .height('100%')
-        }
-        .width('100%')
-        .height(120)
-
-        Column() {
-          ForEach(this.numberArr, (item: string, index: number) => {
-            if (index % 4 === 0) {
-              Row() {
-                ForEach(this.numberArr.slice(index, index + 4), (buttonItem: string) => {
-                  Button(buttonItem)
-                    .ButtonStyles()
-                    .stateStyles({
-                      normal: {
-                        .backgroundColor('#000')
-                      },
-                      pressed: {
-                        .backgroundColor('#70eeeeee')
-                      }
-                    })
-                    .onClick(() => {
-                      if (buttonItem === 'C') {
-                        this.num1 = ''
-                      } else if (buttonItem === 'âŒ«') {
-                        this.num1 = this.num1.slice(0, -1)
-                      } else if (buttonItem === '2è¿›åˆ¶') {
-                        this.num1 = this.convertToBase(this.num1, 2)
-                      } else if (buttonItem === '4è¿›åˆ¶') {
-                        this.num1 = this.convertToBase(this.num1, 4)
-                      } else if (buttonItem === '8è¿›åˆ¶') {
-                        this.num1 = this.convertToBase(this.num1, 8)
-                      } else if (buttonItem === '16è¿›åˆ¶') {
-                        this.num1 = this.convertToBase(this.num1, 16)
-                      } else if (buttonItem === '32è¿›åˆ¶') {
-                        this.num1 = this.convertToBase(this.num1, 32)
-                      } else {
-                        this.num1 += buttonItem
-                      }
-                    })
-                })
-              }
-              .width('100%')
-              .height(120)
-              .justifyContent(FlexAlign.SpaceEvenly)
-              .margin({
-                bottom: 10
-              })
-            }
-          })
-        }
-        .width('100%')
-        .height(880)
-      }
-      .width('100%')
-      .height(1000)
-      .backgroundColor('#000')
-      .justifyContent(FlexAlign.SpaceBetween)
-
-  }
-}
-ÀA’ÔrC–§version¤fileªsourceRoot§sources¥names¨mappings¨Index.js ‘©Index.etsÜ »‘”    ”” ” ” 	” ”” ” 	” 
-” –” ” ” ” ” ”! ”” ” ” ” ‘” ’” 	” 	‘”  ””3 
-”5 
-”6 
-”ÌC 
-(‘”8 ˜” ” ” 	” ” ” ” ”" ˜” ” ” 	” ” ” ” ”  ˜” ” ” 	” ” ” ” ”! ˜” ” ” 	” ” ” ” ”! ’” ” ‘”	 ’” ” ‘” ’” 
-	” 
-’” 
-	” 
-’” 	” ’” 	” ’” ” –” ” ” ” ”  ” ,’” ” ” ” ” ”! ”) #”* $”0 *”2 ,”4 .”5 /”6 /”7 0”ÌF ?–” ” 
-” ” ”" ”# ”” ” &” *” *›” ” ” ”  ”( "”) #”- '”. (”/ (”0 )”; 4‘”	 ’” ” ”” ” ” ” ‘”	 ’” ” ‘” ’”  ”  –”  ”  ” Ìc” Ìc” Ìc” Ìc–”  ”  ” Ìd” Ìd” Ìd” Ìd–”  ”  ” Ìe”" Ìe”# Ìe”) Ìe˜”  ”  ” Ìf”! Ìf”" Ìf”+ Ìf”, Ìf ”8 Ìf,’” "” "–” "” "” 0	” 0” 0” 0–” "” "” 1	” 1” 1” 1’” #
-” #–” #
-” #” -” -” -” -–” #
-” #” .” .” .” .–” $” $” $” $” $”! $–” $” $” %” %” %” %–” $” $” &” &” &” &–” $” $” '”  '”! '”* '(–” $” $” (” (” (”! (–” $” $” )” )” )” )˜” $” $” *” *” *”$ *"”% *#”( *&–” $” $” +” +” +” +’” $” $’” #
-” #’” "” "’” 3” 3–” 3” 3” Ì`	” Ì`” Ì`” Ì`–” 3” 3” Ìa	” Ìa” Ìa” Ìa’” 4
-” 4’”3 41”8 4>˜” 5” 5” 5”  5”! 5”& 5”' 5”) 5!’”  6”# 6–”  6”# 6”$ ÌW”) ÌW”* ÌW”0 ÌW–”  6”# 6”$ ÌX”* ÌX”+ ÌX”. ÌX˜”  6”# 6”$ ÌY”2 ÌY”3 ÌY”< ÌY'”= ÌY(”ÌH ÌY3•”  6”# 6”$ ÌZ”* ÌZ”+ ÌZ””$ Ì[”* Ì[”, Ì[”. Ì[‘”! Ì\’”  7”' 7””( 8”. 8”? 8”ÌI 8#–”( 8”. 8”/ <”> <(”? <)”ÌE </–”( 8”. 8”/ ?”> ?(”? ?)”ÌJ ?4—”( 8”. 8”/ ÌB”6 ÌB”7 ÌB”: ÌB ”< ÌB"–”, ÌC”0 ÌC”: ÌC$”? ÌC)”ÌB ÌC,”ÌD ÌC.—”0 ÌD”4 ÌD”5 ÌD”9 ÌD!”< ÌD$”> ÌD&”? ÌD&‘”- ÌE–”1 ÌE”5 ÌE!”? ÌE+”ÌD ÌE0”ÌG ÌE3”ÌI ÌE5Ü ”0 ÌF”4 ÌF”5 ÌF”9 ÌF!”< ÌF$”Ì@ ÌF(”ÌA ÌF)”ÌE ÌF-”ÌF ÌF.”ÌK ÌF3”ÌL ÌF4”ÌM ÌF5”ÌO ÌF7”ÌP ÌF8”ÌQ ÌF9”ÌR ÌF:”ÌS ÌF:‘”- ÌG–”1 ÌG”5 ÌG!”? ÌG+”ÌD ÌG0”ÌI ÌG5”ÌK ÌG7Ü ”0 ÌH”4 ÌH”5 ÌH”9 ÌH!”< ÌH$”Ì@ ÌH(”ÌA ÌH)”ÌN ÌH6”ÌO ÌH7”ÌS ÌH;”ÌT ÌH<”ÌX ÌHÌ@”ÌZ ÌHÌB”Ì[ ÌHÌC”Ì\ ÌHÌD”Ì] ÌHÌD‘”- ÌI–”1 ÌI”5 ÌI!”? ÌI+”ÌD ÌI0”ÌI ÌI5”ÌK ÌI7Ü ”0 ÌJ”4 ÌJ”5 ÌJ”9 ÌJ!”< ÌJ$”Ì@ ÌJ(”ÌA ÌJ)”ÌN ÌJ6”ÌO ÌJ7”ÌS ÌJ;”ÌT ÌJ<”ÌX ÌJÌ@”ÌZ ÌJÌB”Ì[ ÌJÌC”Ì\ ÌJÌD”Ì] ÌJÌD‘”- ÌK–”1 ÌK”5 ÌK!”? ÌK+”ÌD ÌK0”ÌI ÌK5”ÌK ÌK7Ü ”0 ÌL”4 ÌL”5 ÌL”9 ÌL!”< ÌL$”Ì@ ÌL(”ÌA ÌL)”ÌN ÌL6”ÌO ÌL7”ÌS ÌL;”ÌT ÌL<”ÌX ÌLÌ@”ÌZ ÌLÌB”Ì[ ÌLÌC”Ì\ ÌLÌD”Ì] ÌLÌD‘”- ÌM–”1 ÌM”5 ÌM!”? ÌM+”ÌD ÌM0”ÌJ ÌM6”ÌL ÌM8Ü ”0 ÌN”4 ÌN”5 ÌN”9 ÌN!”< ÌN$”Ì@ ÌN(”ÌA ÌN)”ÌN ÌN6”ÌO ÌN7”ÌS ÌN;”ÌT ÌN<”ÌX ÌNÌ@”ÌZ ÌNÌB”Ì\ ÌNÌD”Ì] ÌNÌE”Ì^ ÌNÌE‘”- ÌO–”1 ÌO”5 ÌO!”? ÌO+”ÌD ÌO0”ÌJ ÌO6”ÌL ÌO8Ü ”0 ÌP”4 ÌP”5 ÌP”9 ÌP!”< ÌP$”Ì@ ÌP(”ÌA ÌP)”ÌN ÌP6”ÌO ÌP7”ÌS ÌP;”ÌT ÌP<”ÌX ÌPÌ@”ÌZ ÌPÌB”Ì\ ÌPÌD”Ì] ÌPÌE”Ì^ ÌPÌE‘”- ÌQ‘”1 ÌQ—”0 ÌR”4 ÌR”5 ÌR”9 ÌR!”= ÌR%”ÌG ÌR/”ÌH ÌR/‘”- ÌS’”( ÌT”) ÌT’”$ 8”* 8”ÌC 7”ÌG 7”ÌH 7”ÌQ 7&”ÌR 7'”ÌW 7,”ÌX 7-”Ì] 72”Ì_ 74”Ìd 79”Ìg 7<”Ìh 7=”Ìi 7>’” 7”# 7’” 6” 6‘” Ì]‘” Ì]””/ 4”3 4”4 4”= 4 ’” 4
-” 4’” 3” 3’”  ”  ‘” ÌhÔrD–§version¤file§sources®sourcesContent¥names¨mappingsÀ‘À‘ÀÜ Ä‘”    ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”  	 ‘”  
- ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”    ‘”  ! ‘”  " ‘”  # ‘”  $ ‘”  % ‘”  & ‘”  ' ‘”  ( ‘”  ) ‘”  * ‘”  + ‘”  , ‘”  - ‘”  . ‘”  / ‘”  0 ‘”  1 ‘”  2 ‘”  3 ‘”  4 ‘”  5 ‘”  6 ‘”  7 ‘”  8 ‘”  9 ‘”  : ‘”  ; ‘”  < ‘”  = ‘”  > ‘”  ? ‘”  Ì@ ‘”  ÌA ‘”  ÌB ‘”  ÌC ‘”  ÌD ‘”  ÌE ‘”  ÌF ‘”  ÌG ‘”  ÌH ‘”  ÌI ‘”  ÌJ ‘”  ÌK ‘”  ÌL ‘”  ÌM ‘”  ÌN ‘”  ÌO ‘”  ÌP ‘”  ÌQ ‘”  ÌR ‘”  ÌS ‘”  ÌT ‘”  ÌU ‘”  ÌV ‘”  ÌW ‘”  ÌX ‘”  ÌY ‘”  ÌZ ‘”  Ì[ ‘”  Ì\ ‘”  Ì] ‘”  Ì^ ‘”  Ì_ ‘”  Ì` ‘”  Ìa ‘”  Ìb ‘”  Ìc ‘”  Ìd ‘”  Ìe ‘”  Ìf ‘”  Ìg ‘”  Ìh ‘”  Ìi ‘”  Ìj ‘”  Ìk ‘”  Ìl ‘”  Ìm ‘”  Ìn ‘”  Ìo ‘”  Ìp ‘”  Ìq ‘”  Ìr ‘”  Ìs ‘”  Ìt ‘”  Ìu ‘”  Ìv ‘”  Ìw ‘”  Ìx ‘”  Ìy ‘”  Ìz ‘”  Ì{ ‘”  Ì| ‘”  Ì} ‘”  Ì~ ‘”  Ì ‘”  Ì€ ‘”  Ì ‘”  Ì‚ ‘”  Ìƒ ‘”  Ì„ ‘”  Ì… ‘”  Ì† ‘”  Ì‡ ‘”  Ìˆ ‘”  Ì‰ ‘”  ÌŠ ‘”  Ì‹ ‘”  ÌŒ ‘”  Ì ‘”  ÌŽ ‘”  Ì ‘”  Ì ‘”  Ì‘ ‘”  Ì’ ‘”  Ì“ ‘”  Ì” ‘”  Ì• ‘”  Ì– ‘”  Ì— ‘”  Ì˜ ‘”  Ì™ ‘”  Ìš ‘”  Ì› ‘”  Ìœ ‘”  Ì ‘”  Ìž ‘”  ÌŸ ‘”  Ì  ‘”  Ì¡ ‘”  Ì¢ ‘”  Ì£ ‘”  Ì¤ ‘”  Ì¥ ‘”  Ì¦ ‘”  Ì§ ‘”  Ì¨ ‘”  Ì© ‘”  Ìª ‘”  Ì« ‘”  Ì¬ ‘”  Ì­ ‘”  Ì® ‘”  Ì¯ ‘”  Ì° ‘”  Ì± ‘”  Ì² ‘”  Ì³ ‘”  Ì´ ‘”  Ìµ ‘”  Ì¶ ‘”  Ì· ‘”  Ì¸ ‘”  Ì¹ ‘”  Ìº ‘”  Ì» ‘”  Ì¼ ‘”  Ì½ ‘”  Ì¾ ‘”  Ì¿ ‘”  ÌÀ ‘”  ÌÁ ‘”  ÌÂ ‘”  ÌÃ ÂÔ  ÔrE”²dynamicImportCache¹exportAllDeclarationCache»exportNamedDeclarationCache«importCache
