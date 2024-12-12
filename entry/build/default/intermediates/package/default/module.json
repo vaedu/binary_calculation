@@ -13,7 +13,6 @@
 		"compileSdkType":	"HarmonyOS",
 		"appEnvironments":	[],
 		"bundleType":	"app",
-		"debug":	true,
 		"iconId":	16777218,
 		"labelId":	16777216
 	},

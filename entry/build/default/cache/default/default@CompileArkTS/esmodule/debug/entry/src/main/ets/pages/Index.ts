@@ -10,6 +10,7 @@ function __Button__ButtonStyles(): void {
     Button.width('22%');
     Button.height(120);
     Button.type(ButtonType.Normal);
+    Button.fontColor('#fff');
 }
 class Index extends ViewPU {
     constructor(parent, params, __localStorage, elmtId = -1, paramsLambda = undefined, extraInfo) {
@@ -17,7 +18,7 @@ class Index extends ViewPU {
         if (typeof paramsLambda === "function") {
             this.paramsGenerator_ = paramsLambda;
         }
-        this.__num1 = new ObservedPropertySimplePU('' // 存储用户输入的原始数字
+        this.__num1 = new ObservedPropertySimplePU('' // 用户输入的十进制数字
         , this, "num1");
         this.__convertedNum = new ObservedPropertySimplePU('' // 存储转换后的数字
         , this, "convertedNum");
@@ -26,7 +27,7 @@ class Index extends ViewPU {
             '7', '8', '9', '8进制',
             '4', '5', '6', '16进制',
             '1', '2', '3', '32进制',
-            '0', '10进制'
+            '10进制', '0'
         ]
         // 进制转换函数
         , this, "numberArr");
@@ -58,7 +59,7 @@ class Index extends ViewPU {
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
     }
-    private __num1: ObservedPropertySimplePU<string>; // 存储用户输入的原始数字
+    private __num1: ObservedPropertySimplePU<string>; // 用户输入的十进制数字
     get num1() {
         return this.__num1.get();
     }
@@ -91,40 +92,26 @@ class Index extends ViewPU {
             return "错误";
         }
     }
-    // 将转换后的数字转换回十进制
-    convertToDecimal(number: string): string {
-        try {
-            const decimalValue = parseInt(number, 10); // 将当前数字按十进制转换
-            return decimalValue.toString(10); // 转换回十进制
-        }
-        catch {
-            return "错误";
-        }
-    }
     initialRender() {
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Navigation.create(new NavPathStack(), { moduleName: "entry", pagePath: "entry/src/main/ets/pages/Index", isUserCreateStack: false });
-            Navigation.hideToolBar(true);
-            Navigation.hideTitleBar(true);
-            Navigation.width('100%');
-            Navigation.height('100%');
-            Navigation.backgroundColor('#000');
-        }, Navigation);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create();
             Column.width('100%');
-            Column.height('150%');
-            Column.justifyContent(FlexAlign.SpaceEvenly);
+            Column.height(1000);
+            Column.backgroundColor('#000');
+            Column.justifyContent(FlexAlign.SpaceBetween);
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
+            // 显示输入或转换后的数字
             Row.create();
+            // 显示输入或转换后的数字
             Row.width('100%');
+            // 显示输入或转换后的数字
             Row.height(120);
         }, Row);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Text.create(this.num1 || this.convertedNum);
+            Text.create(this.convertedNum || this.num1 || '0');
             Text.width('100%');
-            Text.height(100);
+            Text.height(200);
             Text.backgroundColor("#010101");
             Text.fontColor('#fff');
             Text.fontSize(30);
@@ -132,13 +119,15 @@ class Index extends ViewPU {
             Text.padding(10);
         }, Text);
         Text.pop();
+        // 显示输入或转换后的数字
         Row.pop();
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create();
             Column.width('100%');
-            Column.height('100%');
+            Column.height(880);
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
+            // 创建按钮布局
             ForEach.create();
             const forEachItemGenFunction = (_item, index: number) => {
                 const item = _item;
@@ -149,11 +138,9 @@ class Index extends ViewPU {
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
                                 Row.create();
                                 Row.width('100%');
-                                Row.height(100);
+                                Row.height(120);
                                 Row.justifyContent(FlexAlign.SpaceEvenly);
-                                Row.margin({
-                                    bottom: 10
-                                });
+                                Row.margin({ bottom: 10 });
                             }, Row);
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
                                 ForEach.create();
@@ -163,22 +150,22 @@ class Index extends ViewPU {
                                         Button.createWithLabel(buttonItem);
                                         __Button__ButtonStyles();
                                         ViewStackProcessor.visualState("normal");
-                                        Button.fontColor('#fff');
                                         Button.backgroundColor('#000');
                                         ViewStackProcessor.visualState("pressed");
-                                        Button.fontColor('#000');
-                                        Button.backgroundColor('#fff');
+                                        Button.backgroundColor('#70eeeeee');
                                         ViewStackProcessor.visualState();
                                         Button.onClick(() => {
+                                            // 判断按钮功能
                                             if (buttonItem === 'C') {
-                                                // 清除按钮
+                                                // 清空输入
                                                 this.num1 = '';
                                                 this.convertedNum = '';
                                             }
                                             else if (buttonItem === '⌫') {
                                                 // 回退按钮
                                                 if (this.convertedNum) {
-                                                    this.convertedNum = this.convertToDecimal(this.convertedNum);
+                                                    this.convertedNum = '';
+                                                    this.num1 = '';
                                                 }
                                                 else {
                                                     this.num1 = this.num1.slice(0, -1);
@@ -205,17 +192,19 @@ class Index extends ViewPU {
                                                 this.convertedNum = this.convertToBase(this.num1, 32);
                                             }
                                             else if (buttonItem === '10进制') {
-                                                // 将当前转换数字转换回十进制
-                                                this.convertedNum = this.convertToDecimal(this.convertedNum || this.num1);
+                                                // 转换为十进制
+                                                this.convertedNum = this.convertToBase(this.num1, 10);
                                             }
                                             else {
-                                                // 数字或小数点
+                                                // 输入数字或小数点
                                                 if (this.convertedNum) {
-                                                    this.num1 = buttonItem; // 如果已经转换过进制，继续输入新的数字
-                                                    this.convertedNum = ''; // 清空之前的转换结果
+                                                    // 已转换为其他进制，清空转换结果，开始新的输入
+                                                    this.convertedNum = '';
+                                                    this.num1 = buttonItem;
                                                 }
                                                 else {
-                                                    this.num1 += buttonItem; // 否则直接输入数字
+                                                    // 正常输入数字
+                                                    this.num1 += buttonItem;
                                                 }
                                             }
                                         });
@@ -237,10 +226,10 @@ class Index extends ViewPU {
             };
             this.forEachUpdateFunction(elmtId, this.numberArr, forEachItemGenFunction, undefined, true, false);
         }, ForEach);
+        // 创建按钮布局
         ForEach.pop();
         Column.pop();
         Column.pop();
-        Navigation.pop();
     }
     rerender() {
         this.updateDirtyElements();

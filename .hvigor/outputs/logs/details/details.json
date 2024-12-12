@@ -3,10 +3,13 @@
     "MODULES": [
       {
         "MODULE_NAME": "1043bfc77febe75fafec0c4309faccf1",
-        "API_TYPE": "stageMode"
+        "API_TYPE": "stageMode",
+        "INCREMENTAL_TASKS": {
+          "COMPILE_ARKTS": true
+        }
       }
     ],
-    "BUILD_MODE": "debug"
+    "BUILD_MODE": "release"
   },
   "HVIGOR": {
     "IS_INCREMENTAL": true,
@@ -15,17 +18,41 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "1043bfc77febe75fafec0c4309faccf1": {
-        "PreCheckSyscap": 364000,
-        "GeneratePkgContextInfo": 567300,
-        "PreviewProcessResource": 3704900,
-        "PreviewHookCompileResource": 482100,
-        "ReplacePreviewerPage": 333300,
-        "buildPreviewerResource": 465900,
-        "PreviewArkTS": 8791926400,
-        "PreviewBuild": 261500
+        "init": 536700,
+        "PreBuild": 28836000,
+        "GenerateMetadata": 5957200,
+        "ConfigureCmake": 316900,
+        "MergeProfile": 5914000,
+        "CreateBuildProfile": 5034000,
+        "PreCheckSyscap": 589000,
+        "GeneratePkgContextInfo": 615400,
+        "ProcessIntegratedHsp": 2020100,
+        "BuildNativeWithCmake": 320700,
+        "MakePackInfo": 6835700,
+        "ProcessProfile": 175927800,
+        "SyscapTransform": 4862700,
+        "BuildNativeWithNinja": 950400,
+        "CompileResource": 202704500,
+        "BuildJS": 3854500,
+        "ProcessLibs": 1281229500,
+        "CompileArkTS": 1130889100,
+        "GeneratePkgModuleJson": 3525800,
+        "PackageHap": 500902100,
+        "SignHap": 2400700,
+        "assembleHap": 379300
+      },
+      "APP": {
+        "init": 376000,
+        "PreBuildApp": 420100,
+        "DuplicateDependencyCheck": 729100,
+        "MakeProjectPackInfo": 5935500,
+        "GeneratePackRes": 907900,
+        "PackageApp": 525625700,
+        "SignApp": 6791400,
+        "assembleApp": 324300
       }
     },
-    "TOTAL_TIME": 9209392400,
-    "BUILD_ID": "202412092056570690"
+    "TOTAL_TIME": 3002862500,
+    "BUILD_ID": "202412122159088340"
   }
 }

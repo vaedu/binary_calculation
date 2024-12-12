@@ -4,7 +4,6 @@
   ],
   "entry\\src\\main\\ets\\pages\\Index.ets": [
     "Button",
-    "Navigation",
     "Column",
     "Row",
     "Text",
